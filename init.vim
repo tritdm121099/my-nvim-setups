@@ -35,6 +35,13 @@ Plug 'nvim-lualine/lualine.nvim'
 Plug 'neovim/nvim-lspconfig'	" lsg 
 Plug 'onsails/lspkind-nvim'		" autocomplete lsg
 
+" {{ GIT }}
+Plug 'lewis6991/gitsigns.nvim' " git change line
+
+" {{ Vim }}
+Plug 'gelguy/wilder.nvim' " suggest vim command
+Plug 'rcarriga/nvim-notify' " notification manager for NeoVim
+
 set encoding=UTF-8
 
 call plug#end()
@@ -43,4 +50,6 @@ call plug#end()
 for setting_file in split(glob(stdpath('config').'/setting-plugins/*.vim'))
   execute 'source' setting_file
 endfor
+
+
 
