@@ -34,4 +34,8 @@ nvim_lsp.angularls.setup{
     new_config.cmd = angular_cmd
   end,
 }
+
+-- Tailwind
+nvim_lsp.tailwindcss.setup {}
+
 END

@@ -10,50 +10,33 @@ local function telescope_buffer_dir()
 end
 
 local fb_actions = require "telescope".extensions.file_browser.actions
+local actions = require "telescope.actions"
 
 telescope.setup {
   defaults = {
-    mappings = {
+		prompt_prefix = " ",
+    selection_caret = " ",
+    path_display = { "smart" },
+
+		mappings = {
       n = {
-        ["q"] = actions.close
-      },
+				["q"] = actions.close
+			}
+		}
+  },
+  pickers = {
+    -- Default configuration for builtin pickers goes here:
+    -- picker_name = {
+    --   picker_config_key = value,
+    --   ...
+    -- }
+    -- Now the picker_config_key will be applied every time you call this
+    -- builtin picker
+    planets = {
+      show_pluto = true,
     },
   },
-}
-
--- keymaps
-vim.keymap.set('n', ';f',
-  function()
-    builtin.find_files({
-      no_ignore = false,
-      hidden = true
-    })
-  end)
-vim.keymap.set('n', ';r', function()
-  builtin.live_grep()
-end)
-vim.keymap.set('n', '\\\\', function()
-  builtin.buffers()
-end)
-vim.keymap.set('n', ';t', function()
-  builtin.help_tags()
-end)
-vim.keymap.set('n', ';;', function()
-  builtin.resume()
-end)
-vim.keymap.set('n', ';e', function()
-  builtin.diagnostics()
-end)
-
-telescope.setup {
-  defaults = {
-    mappings = {
-      n = {
-        ["q"] = actions.close
-      },
-    },
-  },
-  extensions = {
+	extensions = {
     file_browser = {
       theme = "dropdown",
       -- disables netrw and use telescope-file-browser in its place
@@ -74,7 +57,37 @@ telescope.setup {
       },
     },
   },
+
 }
+
+-- keymaps
+vim.keymap.set('n', ';ff',
+  function()
+    builtin.find_files({
+      no_ignore = false,
+      hidden = true
+    })
+  end)
+vim.keymap.set('n', ';r', function()
+  builtin.live_grep()
+end)
+vim.keymap.set('n', ';fs', function()
+	builtin.grep_string({ search = vim.fn.input("Grep > ") })
+end)
+vim.keymap.set('n', '<C-p>', builtin.git_files, {})
+vim.keymap.set('n', '\\\\', function()
+  builtin.buffers()
+end)
+vim.keymap.set('n', ';t', function()
+  builtin.help_tags()
+end)
+vim.keymap.set('n', ';;', function()
+  builtin.resume()
+end)
+vim.keymap.set('n', ';e', function()
+  builtin.diagnostics()
+end)
+
 telescope.load_extension("file_browser")
 
 vim.keymap.set("n", "sf", function()

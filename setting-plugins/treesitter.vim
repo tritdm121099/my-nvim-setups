@@ -15,6 +15,9 @@ ts.setup {
     disable = {},
   },
   ensure_installed = {
+		"vimdoc",
+		"javascript",
+		"typescript",
     "tsx",
     "toml",
     "fish",
@@ -36,7 +39,7 @@ install_treesitter.prefer_git = false
 install_treesitter.compilers = { "gcc" }
 
 local parser_config = require "nvim-treesitter.parsers".get_parser_configs()
-parser_config.tsx.filetype_to_parsername = { "javascript", "typescript.tsx" }
+parser_config.tsx.filetype_to_parsername = { "javascript", "typescript.tsx", "typescript.ts" }
 
 EOF
 
