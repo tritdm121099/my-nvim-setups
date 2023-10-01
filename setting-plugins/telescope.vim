@@ -67,7 +67,8 @@ vim.keymap.set('n', ';ff',
       no_ignore = false,
       hidden = true
     })
-  end)
+	end
+	, { desc = "File finder"})
 vim.keymap.set('n', ';r', function()
   builtin.live_grep()
 end)

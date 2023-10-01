@@ -11,7 +11,7 @@
 :set nofoldenable
 :set foldlevel=2
 
-call plug#begin('~/AppData/Local/nvim/plugged')
+call plug#begin()
 
 "{{ theme }}
 Plug 'folke/tokyonight.nvim'
@@ -30,7 +30,8 @@ Plug 'windwp/nvim-ts-autotag'				" auto close tag html
 Plug 'windwp/nvim-autopairs'				" auto close brackets
 Plug 'akinsho/bufferline.nvim'			" multi tabs
 Plug 'nvim-tree/nvim-tree.lua'			" A File Explorer
-
+Plug 'NvChad/nvim-colorizer.lua'		" color preview
+		
 "{{ status line }}
 Plug 'nvim-lualine/lualine.nvim'		
 
@@ -53,18 +54,27 @@ Plug 'lewis6991/gitsigns.nvim' " git change line
 Plug 'gelguy/wilder.nvim' " suggest vim command
 Plug 'rcarriga/nvim-notify' " notification manager for NeoVim
 
+" {{ Core }}
+Plug 'akinsho/toggleterm.nvim' " toggle multiple terminals
+Plug 'numToStr/Comment.nvim' " comment code
+Plug 'folke/which-key.nvim' " suggest command
+
 set encoding=UTF-8
 
 call plug#end()
 
 lua << EOF
 	require('keymap')
+	
+	require('plugins/autopairs')
+	require('plugins/comment')
+	require('plugins/toggleterm')
+	require('plugins/which_key')	
+	require('plugins/tree')
 EOF
 
 " Other setting
 for setting_file in split(glob(stdpath('config').'/setting-plugins/*.vim'))
   execute 'source' setting_file
 endfor
-
-
 

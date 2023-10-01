@@ -1,4 +1,3 @@
-lua << EOF
 
 local status, tree = pcall(require, 'nvim-tree')
 if(not status) then return end
@@ -24,6 +23,6 @@ tree.setup({
   },
 })
 
-vim.keymap.set('n', '<C-b>', '<Cmd>NvimTreeToggle<CR>', {})
+vim.keymap.set('n', '<C-b>', '<Cmd>NvimTreeToggle<CR>', { desc = "File Explorer" })
+vim.keymap.set('i', '<C-b>', '<Cmd>NvimTreeToggle<CR>', { desc = "File Explorer" })
 
-EOF
