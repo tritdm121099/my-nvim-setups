@@ -6,8 +6,12 @@ return {
       "stylua",
       "shellcheck",
       "shfmt",
+      "luacheck",
       "flake8",
       "nxls",
+      "tailwindcss-language-server",
+      "typescript-language-server",
+      "css-lsp",
     },
   },
 }
