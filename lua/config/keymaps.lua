@@ -17,3 +17,8 @@ keymap.set("n", "<tab>", ":tabnext<Return>", { desc = "next tab" })
 keymap.set("n", "<s-tab>", ":tabprev<Return>", { desc = "previous tab" })
 
 keymap.set("n", "<leader>mm", "<cmd>Telescope neoclip<cr>", { desc = "Telescope Clipboard" })
+
+-- markdown preview
+keymap.set("n", "<leader>mdo", "<cmd>MarkdownPreviewToggle<cr>", { desc = "Markdown Preview Toggle" })
+keymap.set("n", "<leader>mdp", "<cmd>MarkdownPreview<cr>", { desc = "Markdown Preview " })
+keymap.set("n", "<leader>mds", "<cmd>MarkdownPreviewToggle<cr>", { desc = "Markdown Preview Stop" })
